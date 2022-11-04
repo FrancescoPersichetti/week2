@@ -1,0 +1,83 @@
+#include <stdio.h>
+
+int main()
+{
+    char scelta = {'\0'};
+    char nome[100] = {'\0'};
+
+    printf("Il gioco consiste nel rispondere a tutte le domande nel modo corretto. Più risposte saranno corrette, più alto sarà il tuo punteggio\n");
+    printf("Hai due possibilità:\n A) se vuoi iniziare il gioco \n B) Se vuoi uscire\n");
+    scanf("%c", &scelta);
+
+    while(scelta != 'A' && scelta != 'B'){
+        printf("Inserisci un carattere tra A o B\n");
+        scanf("%c", &scelta);
+    }
+    do{
+        int contatore = 0;
+        if(scelta == 'B'){
+            return 0;
+        }
+        if(scelta == 'A'){
+                char risposta1, risposta2, risposta3;
+
+                printf("*****************************************\n");
+                printf("Hai iniziato il gioco\n");
+                printf("Prima di tutto dicci come ti chiami\n");
+                scanf("%s", &nome);
+                printf("Bene %s iniziamo\n", nome);
+                printf("***********************************************\n");
+                //Domande
+                printf("Chi ha inventato il linguaggio C?\n");
+                printf("A)Dennis Ritchie\nB)Bill Gates\nC)Steve Jobs\n");
+                scanf("%c", &risposta1);
+                while(risposta1 != 'A'&& risposta1 != 'B' && risposta1 != 'C'){
+                    printf("Inserisci un carattere valido (A-B-C)\n");
+                    scanf("%c", &risposta1);
+                }
+                if(risposta1 == 'A'){
+                    printf("Corretto\n");
+                    contatore = contatore + 1;
+                }else{
+                    printf("Sbagliato\n");
+                }
+                printf("***********************************************\n");
+                printf("Quanti sono i livelli del modello ISO/OSI?\n");
+                printf("A)5\nB)4\nC)7\n");
+                scanf("%c", &risposta2);
+                while(risposta2 != 'A'&& risposta2 != 'B' && risposta2 != 'C'){
+                    printf("Inserisci un carattere valido (A-B-C)\n");
+                    scanf("%c", &risposta2);
+                }
+                if(risposta2 =='C'){
+                    printf("Corretto\n");
+                    contatore = contatore + 1;
+                }else{
+                    printf("Hai sbagliato\n");
+                }
+                printf("***********************************************\n");
+                printf("Il linguaggio C è un linguaggio ad alto livello?\n");
+                printf("A)No\nB)Si\nC)Non lo so\n");
+                scanf("%c", &risposta3);
+                while(risposta3 != 'A'&& risposta3 != 'B' && risposta3 != 'C'){
+                    printf("Inserisci un carattere valido (A-B-C)\n");
+                    scanf("%c", &risposta3);
+                }
+                if(risposta3 =='B'){
+                    printf("Corretto\n");
+                    contatore = contatore + 1;
+                }else{
+                    printf("Hai sbagliato\n");
+                }
+            }
+        printf("***********************************************\n");
+        printf("Il gioco è finito, %s hai fatto %d punti\n",nome, contatore);
+        printf("Premi A per rigiocare, premi B per uscire\n");
+        scanf("%c", &scelta);
+        while(scelta != 'A' && scelta != 'B'){
+            printf("Inserisci un carattere tra A o B\n");
+            scanf("%c", &scelta);
+        }
+    }
+    while(scelta == 'A');
+}
