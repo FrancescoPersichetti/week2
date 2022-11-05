@@ -1,0 +1,103 @@
+#include <stdio.h>
+
+void menu ();
+void moltiplica ();
+void dividi ();
+void ins_string();
+
+
+int main ()
+
+{
+	char scelta = {'\0'};
+	char sceltafinale = {'\0'};
+
+    do{
+        menu ();
+        scanf ("%c", &scelta);
+        while(scelta != 'A' && scelta != 'B' && scelta != 'C' && scelta != 'D'){
+        printf("Inserisci un carattere valido\n");
+        scanf ("%c", &scelta);
+        }
+        switch (scelta)
+        {
+            case 'A':
+                    moltiplica();
+                    break;
+            case 'B':
+                    dividi();
+                    break;
+            case 'C':
+                    ins_string();
+                    break;
+            case 'D':
+                    printf("Sei uscito dal programma\n");
+                    break;
+        }
+            printf("Ti serve altro?\nS >>Si\nN >> No\n");
+            scanf("%c", &sceltafinale);
+            while(sceltafinale != 'S' && sceltafinale != 'N'){
+            printf("Inserisci un carattere valido\n");
+            scanf ("%c", &sceltafinale);
+            }
+    }
+    while(sceltafinale == 'S');
+
+
+return 0;
+
+}
+
+
+void menu ()
+{
+	printf ("Benvenuto, sono un assitente digitale, posso aiutarti a sbrigare alcuni compiti\n");
+	printf ("Come posso aiutarti?\n");
+	printf ("A >> Moltiplicare due numeri\nB >> Dividere due numeri\nC >> Inserire una stringa\nD >> Esci dal programma\n");
+
+}
+
+
+void moltiplica ()
+{
+    int  a,b = 0;
+	printf ("Inserisci il primo numero da moltiplicare:\n");
+	scanf ("%d", &a);
+	printf ("Inserisci il secondo numero da moltiplicare:\n");
+	scanf ("%d", &b);
+
+    int prodotto = a * b;
+
+	printf ("Il prodotto tra %d e %d e': %d\n", a,b,prodotto);
+}
+
+
+void dividi ()
+{
+        float  a,b = 0;
+        printf ("Inserisci il numeratore:\n");
+        scanf ("%f", &a);
+        printf ("Inserisci il denominatore:\n");
+        scanf ("%f", &b);
+        while(b == 0){
+            printf ("Inserisci il denominatore maggiore di 0:\n");
+            scanf ("%f", &b);
+        }
+
+        float divisione = a / b;
+
+        printf ("La divisione tra %f e %f e': %f\n", a,b,divisione);
+}
+
+
+
+
+
+void ins_string ()
+{
+	char stringa[10];
+    printf ("Inserisci la stringa:\n");
+    scanf ("%s", &stringa);
+    printf ("Hai inserito: %s\n", stringa);
+}
+
